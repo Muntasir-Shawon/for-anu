@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #050505;
+  --color-surface: #0a0a0a;
+  --color-card: #121212;
+  --color-card-hover: #18181b;
+  --color-card-border: rgba(229, 195, 120, 0.12);
+  --color-card-border-hover: rgba(229, 195, 120, 0.35);
+  
+  --color-champagne: #e5c378;
+  --color-champagne-light: #f4e8cf;
+  --color-champagne-dim: #a3823f;
+  --color-gold: #d4af37;
+  
+  --color-warm-white: #faf7f2;
+  --color-ivory: #f5f2eb;
+  --color-muted: #a1a1aa;
+  --color-muted-dim: #71717a;
+  
+  --font-serif: var(--font-cormorant), "Playfair Display", Georgia, Cambria, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #050505;
+  --text-primary: #faf7f2;
+  --gold: #e5c378;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #faf7f2;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050505;
+  color: #faf7f2;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3823f;
+}
+
+/* Film Grain Texture Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ambient Radial Glow */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(229, 195, 120, 0.04) 0%, transparent 70%);
+}
+
+.ambient-glow-burgundy {
+  background: radial-gradient(circle at 50% 50%, rgba(138, 28, 66, 0.05) 0%, transparent 75%);
+}
+
+/* Gold Text Shimmer & Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f7ebd2 0%, #e5c378 50%, #b89345 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-glow {
+  text-shadow: 0 0 24px rgba(229, 195, 120, 0.35);
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 195, 120, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.glass-card-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(24, 24, 27, 0.85);
+  border-color: rgba(229, 195, 120, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(229, 195, 120, 0.08), 0 0 24px -4px rgba(229, 195, 120, 0.06);
+}
+
+/* Ken Burns slow scale */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 30s ease-in-out infinite alternate;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
