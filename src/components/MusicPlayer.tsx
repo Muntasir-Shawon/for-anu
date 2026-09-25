@@ -16,9 +16,9 @@ export default function MusicPlayer({ externalPlayTrigger }: MusicPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (!loveStory.music.enabled || !loveStory.music.src) return;
-
-    const audio = new Audio(loveStory.music.src);
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    const audioSrc = `${basePath}${loveStory.music.src}`;
+    const audio = new Audio(audioSrc);
     audio.loop = true;
     audio.preload = "auto";
     audio.volume = 0.5;
