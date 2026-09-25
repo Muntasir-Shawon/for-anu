@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { loveStory } from "@/data/loveStory";
+import { audioController } from "@/utils/audio";
 
 interface EnvelopeProps {
   onComplete: () => void;
@@ -14,6 +15,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
 
   const handleOpen = () => {
     if (isOpen || hasCompleted) return;
+    audioController.play();
     setIsOpen(true);
 
     setTimeout(() => {

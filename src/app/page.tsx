@@ -18,6 +18,7 @@ import FinalCinematicEnding from "@/components/FinalCinematicEnding";
 import FinalPhoto from "@/components/FinalPhoto";
 import MusicPlayer from "@/components/MusicPlayer";
 import { loveStory } from "@/data/loveStory";
+import { audioController } from "@/utils/audio";
 
 export default function Home() {
   // App Phase: "mystery" | "envelope" | "story"
@@ -35,6 +36,7 @@ export default function Home() {
   }, []);
 
   const handleStartOpening = () => {
+    audioController.play();
     setSoundTriggered(true);
     setPhase("envelope");
   };

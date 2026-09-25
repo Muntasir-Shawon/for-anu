@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Volume2, VolumeX, Play } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
-import { getAssetPath } from "@/utils/assetPath";
+import { audioController } from "@/utils/audio";
 
 interface MusicPlayerProps {
   externalPlayTrigger?: boolean;
@@ -12,77 +12,37 @@ interface MusicPlayerProps {
 export default function MusicPlayer({ externalPlayTrigger }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Set default volume when audio mounts
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.75;
-    }
+    // Subscribe to centralized audio controller
+    const unsubscribe = audioController.subscribe((playing, muted) => {
+      setIsPlaying(playing);
+      setIsMuted(muted);
+    });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-  // Triggered when user opens gift or clicks wax seal
   useEffect(() => {
-    if (externalPlayTrigger && audioRef.current && !isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((err) => {
-            console.log("Autoplay waiting for user gesture:", err);
-          });
-      }
+    if (externalPlayTrigger && !isPlaying) {
+      audioController.play().catch(() => {});
     }
   }, [externalPlayTrigger, isPlaying]);
 
   const togglePlay = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.volume = 0.75;
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((err) => {
-            console.warn("Playback error:", err);
-          });
-      }
-    }
+    audioController.toggle();
   };
 
   const toggleMute = () => {
-    if (!audioRef.current) return;
-    audioRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+    audioController.toggleMute();
   };
 
   if (!loveStory.music.enabled) return null;
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2">
-      {/* Hidden robust HTML5 audio element rendered inside the DOM with multiple fallback codecs */}
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        playsInline
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onEnded={() => setIsPlaying(false)}
-      >
-        <source src={getAssetPath("/music/until-i-found-you.mp3")} type="audio/mpeg" />
-        <source src={getAssetPath("/music/until-i-found-you.m4a")} type="audio/mp4" />
-        <source src={getAssetPath("/music/until-i-found-you.webm")} type="audio/webm" />
-      </audio>
-
       <div className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#0E0E0E]/95 backdrop-blur-md border border-[#E5C378]/30 hover:border-[#E5C378]/60 text-[#FAF7F2] transition-all duration-300 shadow-xl hover:shadow-[#E5C378]/20 text-xs tracking-wider">
         <button
           onClick={togglePlay}

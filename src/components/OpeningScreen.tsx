@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { loveStory } from "@/data/loveStory";
+import { audioController } from "@/utils/audio";
 
 interface OpeningScreenProps {
   onOpen: () => void;
@@ -62,7 +63,10 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
         >
           <button
             id="open-gift-btn"
-            onClick={onOpen}
+            onClick={() => {
+              audioController.play();
+              onOpen();
+            }}
             className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent border border-[#E5C378]/30 hover:border-[#E5C378] text-[#FAF7F2] tracking-[0.18em] text-xs sm:text-sm uppercase transition-all duration-500 hover:bg-[#E5C378]/10 hover:shadow-[0_0_30px_rgba(229,195,120,0.15)] cursor-pointer"
           >
             <span>{loveStory.opening.buttonText}</span>
