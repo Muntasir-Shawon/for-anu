@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
@@ -20,12 +20,11 @@ export default function BirthdayHero() {
           transition={{ duration: 2.2, ease: "easeOut" }}
           className="relative w-full h-full animate-kenburns"
         >
-          <Image
+          <SafeImage
             src={loveStory.hero.image}
             alt={loveStory.meta.recipient}
             fill
             priority
-            fetchPriority="high"
             className="object-cover object-center filter contrast-[105%]"
             sizes="100vw"
           />

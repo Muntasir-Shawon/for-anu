@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { loveStory } from "@/data/loveStory";
 
@@ -66,7 +66,7 @@ export default function MemorySection() {
                 >
                   <div className="relative aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden glass-card p-2 sm:p-3 group">
                     <div className="relative w-full h-full rounded-xl overflow-hidden">
-                      <Image
+                      <SafeImage
                         src={item.image}
                         alt={item.title}
                         fill

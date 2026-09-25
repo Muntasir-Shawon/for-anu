@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { Calendar, Heart } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
@@ -57,7 +57,7 @@ export default function StoryTimeline() {
             className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-card p-2"
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden">
-              <Image
+              <SafeImage
                 src={loveStory.beginning.images[0]}
                 alt="Our beginning"
                 fill
@@ -108,7 +108,7 @@ export default function StoryTimeline() {
                 className="relative aspect-[3/4] rounded-xl overflow-hidden glass-card p-1.5"
               >
                 <div className="relative w-full h-full rounded-lg overflow-hidden">
-                  <Image
+                  <SafeImage
                     src={imgSrc}
                     alt={`Beginning photo ${idx + 2}`}
                     fill

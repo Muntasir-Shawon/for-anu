@@ -24,20 +24,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://for-anu.vercel.app"),
+  metadataBase: new URL("https://muntasir-shawon.github.io/for-anu"),
   title: loveStory.meta.siteTitle,
   description: loveStory.meta.siteDescription,
   icons: {
-    icon: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/for-anu/favicon.svg",
+    apple: "/for-anu/favicon.svg",
   },
   openGraph: {
     title: loveStory.meta.siteTitle,
     description: loveStory.meta.siteDescription,
+    url: "https://muntasir-shawon.github.io/for-anu/",
+    siteName: "Anu's Birthday Surprise",
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/for-anu/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: `${loveStory.meta.recipient}'s Birthday`,
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: loveStory.meta.siteTitle,
     description: loveStory.meta.siteDescription,
-    images: ["/images/og-image.jpg"],
+    images: ["/for-anu/images/og-image.jpg"],
   },
 };
 

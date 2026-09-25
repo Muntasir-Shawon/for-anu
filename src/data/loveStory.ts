@@ -7,6 +7,8 @@
  * -------------------------------------------------------------
  */
 
+import { getAssetPath } from "@/utils/assetPath";
+
 export interface MemoryItem {
   id: string;
   number: string;
@@ -170,7 +172,7 @@ export const loveStory: LoveStoryConfig = {
     enabled: true,
     title: "Until I Found You",
     artist: "Stephen Sanchez",
-    src: "/music/until-i-found-you.mp3",
+    src: getAssetPath("/music/until-i-found-you.mp3"),
   },
 
   opening: {
@@ -193,7 +195,7 @@ export const loveStory: LoveStoryConfig = {
     lead: "Today is your day.",
     sublead: "And I wanted to make you something a little different.",
     signature: "— Shawon",
-    image: "/images/hero.jpg",
+    image: getAssetPath("/images/hero.jpg"),
   },
 
   birthdayMessage: {
@@ -223,9 +225,9 @@ export const loveStory: LoveStoryConfig = {
       "I can't imagine my story without it.",
     ],
     images: [
-      "/images/beginning-01.jpg",
-      "/images/beginning-02.jpg",
-      "/images/beginning-03.jpg",
+      getAssetPath("/images/beginning-01.jpg"),
+      getAssetPath("/images/beginning-02.jpg"),
+      getAssetPath("/images/beginning-03.jpg"),
     ],
   },
 
@@ -242,7 +244,7 @@ export const loveStory: LoveStoryConfig = {
           "Standing by the water in your favorite black dress, with the breeze in your hair...",
           "That was the moment I realized ordinary afternoons would never feel ordinary again.",
         ],
-        image: "/images/memory-01.jpg",
+        image: getAssetPath("/images/memory-01.jpg"),
         caption: "Your quiet grace by the water, effortless and unforgettable.",
       },
       {
@@ -254,7 +256,7 @@ export const loveStory: LoveStoryConfig = {
           "Just you resting your chin in your hands across from me, listening to whatever silly thing I said...",
           "Those were the quiet moments I wanted to keep forever.",
         ],
-        image: "/images/memory-02.jpg",
+        image: getAssetPath("/images/memory-02.jpg"),
         caption: "Chin in your hands, the warmth in your eyes that resets my world.",
       },
       {
@@ -266,7 +268,7 @@ export const loveStory: LoveStoryConfig = {
           "Raindrops gathered on the motorcycle mirror while we laughed through the roads of Dhaka.",
           "A simple ride became one of my all-time favorite memories.",
         ],
-        image: "/images/memory-03.jpg",
+        image: getAssetPath("/images/memory-03.jpg"),
         caption: "Raindrops on the mirror, riding through the city together.",
       },
       {
@@ -279,7 +281,7 @@ export const loveStory: LoveStoryConfig = {
           "But whenever my hand finds yours across the table...",
           "Everything else fades away.",
         ],
-        image: "/images/memory-04.jpg",
+        image: getAssetPath("/images/memory-04.jpg"),
         caption: "Holding hands across the table, peaceful and steady through everything.",
       },
       {
@@ -292,7 +294,7 @@ export const loveStory: LoveStoryConfig = {
           "With gentle affection, knowing every part of me, and choosing to stay.",
           "Just you and me under the open sky.",
         ],
-        image: "/images/memory-05.jpg",
+        image: getAssetPath("/images/memory-05.jpg"),
         caption: "The way you look at me makes every dream feel within reach.",
       },
     ],
@@ -311,70 +313,70 @@ export const loveStory: LoveStoryConfig = {
         id: "gal-01",
         title: "Gryffindor Magic",
         caption: "In robes and ties—even in Hogwarts, you'd be my favorite spell.",
-        image: "/images/gallery-01.jpg",
+        image: getAssetPath("/images/gallery-01.jpg"),
         span: "tall",
       },
       {
         id: "gal-02",
         title: "Cafe Afternoons",
         caption: "Round glasses, endless talks, and that comfortable warmth between us.",
-        image: "/images/gallery-02.jpg",
+        image: getAssetPath("/images/gallery-02.jpg"),
         span: "normal",
       },
       {
         id: "gal-03",
         title: "Woven Memories",
         caption: "Finding beauty in handcrafted macramé mirrors together at the fair.",
-        image: "/images/gallery-03.jpg",
+        image: getAssetPath("/images/gallery-03.jpg"),
         span: "normal",
       },
       {
         id: "gal-04",
         title: "Date Nights",
         caption: "Good food, silly expressions, and the best company in the world.",
-        image: "/images/gallery-04.jpg",
+        image: getAssetPath("/images/gallery-04.jpg"),
         span: "wide",
       },
       {
         id: "gal-05",
         title: "A Single White Rose",
         caption: "Gentle, timeless, and pure—just like what I feel for you.",
-        image: "/images/gallery-05.jpg",
+        image: getAssetPath("/images/gallery-05.jpg"),
         span: "normal",
       },
       {
         id: "gal-06",
         title: "Frozen In Time",
         caption: "Two little polaroid snapshots holding a million quiet emotions.",
-        image: "/images/gallery-06.jpg",
+        image: getAssetPath("/images/gallery-06.jpg"),
         span: "tall",
       },
       {
         id: "gal-07",
         title: "Playful & Adorable",
         caption: "You and your silly little plushies—always making me smile.",
-        image: "/images/gallery-07.jpg",
+        image: getAssetPath("/images/gallery-07.jpg"),
         span: "normal",
       },
       {
         id: "gal-08",
         title: "Safe In My Arms",
         caption: "Peeking over my shoulder, keeping me grounded and loved.",
-        image: "/images/gallery-08.jpg",
+        image: getAssetPath("/images/gallery-08.jpg"),
         span: "wide",
       },
       {
         id: "gal-09",
         title: "Sun Hat Shenanigans",
         caption: "Trying on silly straw hats and pretending we're on vacation.",
-        image: "/images/gallery-09.jpg",
+        image: getAssetPath("/images/gallery-09.jpg"),
         span: "normal",
       },
       {
         id: "gal-10",
         title: "The Red Bouquet & Infinity",
         caption: "Red roses, your infinity necklace, and love that knows no end.",
-        image: "/images/gallery-10.jpg",
+        image: getAssetPath("/images/gallery-10.jpg"),
         span: "normal",
       },
     ],
@@ -490,7 +492,7 @@ export const loveStory: LoveStoryConfig = {
     tagline: "HAPPY BIRTHDAY! 🎂🤍",
     message1: "Today, the world gets to celebrate you.",
     message2: "And I get to celebrate the person who means so much to me.",
-    image: "/images/reveal.jpg",
+    image: getAssetPath("/images/reveal.jpg"),
   },
 
   reminder: {
@@ -512,7 +514,7 @@ export const loveStory: LoveStoryConfig = {
   },
 
   ending: {
-    image: "/images/final.jpg",
+    image: getAssetPath("/images/final.jpg"),
     linesPart1: [
       "After everything...",
       "After all the memories we've made...",
@@ -534,7 +536,7 @@ export const loveStory: LoveStoryConfig = {
   },
 
   finalPhoto: {
-    image: "/images/final.jpg",
+    image: getAssetPath("/images/final.jpg"),
     dateRange: "01.04.2023 → ∞",
     wish: "Happy Birthday, Anu.",
     love: "I love you.",

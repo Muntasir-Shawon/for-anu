@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { loveStory } from "@/data/loveStory";
 
@@ -11,7 +11,7 @@ export default function FinalCinematicEnding() {
       {/* Background Photograph with slow zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="relative w-full h-full animate-kenburns opacity-25">
-          <Image
+          <SafeImage
             src={loveStory.ending.image}
             alt="Final Ending"
             fill

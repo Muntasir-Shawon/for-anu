@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Volume2, VolumeX, Play } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
+import { getAssetPath } from "@/utils/assetPath";
 
 interface MusicPlayerProps {
   externalPlayTrigger?: boolean;
@@ -11,24 +12,14 @@ interface MusicPlayerProps {
 export default function MusicPlayer({ externalPlayTrigger }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [basePath, setBasePath] = useState("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Dynamically resolve base path for GitHub Pages (/for-anu) vs Localhost
-  useEffect(() => {
-    let resolved = process.env.NEXT_PUBLIC_BASE_PATH || "";
-    if (typeof window !== "undefined" && window.location.pathname.startsWith("/for-anu")) {
-      resolved = "/for-anu";
-    }
-    setBasePath(resolved);
-  }, []);
 
   // Set default volume when audio mounts
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.75;
     }
-  }, [basePath]);
+  }, []);
 
   // Triggered when user opens gift or clicks wax seal
   useEffect(() => {
@@ -87,9 +78,9 @@ export default function MusicPlayer({ externalPlayTrigger }: MusicPlayerProps) {
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
       >
-        <source src={`${basePath}/music/until-i-found-you.mp3`} type="audio/mpeg" />
-        <source src={`${basePath}/music/until-i-found-you.m4a`} type="audio/mp4" />
-        <source src={`${basePath}/music/until-i-found-you.webm`} type="audio/webm" />
+        <source src={getAssetPath("/music/until-i-found-you.mp3")} type="audio/mpeg" />
+        <source src={getAssetPath("/music/until-i-found-you.m4a")} type="audio/mp4" />
+        <source src={getAssetPath("/music/until-i-found-you.webm")} type="audio/webm" />
       </audio>
 
       <div className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#0E0E0E]/95 backdrop-blur-md border border-[#E5C378]/30 hover:border-[#E5C378]/60 text-[#FAF7F2] transition-all duration-300 shadow-xl hover:shadow-[#E5C378]/20 text-xs tracking-wider">

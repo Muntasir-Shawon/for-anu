@@ -5,6 +5,7 @@ const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 const nextConfig: NextConfig = {
   output: isGithubPages ? "export" : undefined,
   basePath: isGithubPages ? "/for-anu" : "",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

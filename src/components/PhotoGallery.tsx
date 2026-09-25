@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { Maximize2 } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
@@ -74,7 +74,7 @@ export default function PhotoGallery() {
                 onClick={() => setSelectedPhotoIndex(index)}
               >
                 <div className="relative w-full h-full rounded-xl overflow-hidden">
-                  <Image
+                  <SafeImage
                     src={item.image}
                     alt={item.title}
                     fill

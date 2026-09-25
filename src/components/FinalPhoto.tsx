@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { Heart, Infinity as InfinityIcon } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
@@ -19,7 +19,7 @@ export default function FinalPhoto() {
           className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-2xl overflow-hidden glass-card p-2 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[#E5C378]/25"
         >
           <div className="relative w-full h-full rounded-xl overflow-hidden">
-            <Image
+            <SafeImage
               src={loveStory.finalPhoto.image}
               alt="Anu & Shawon"
               fill

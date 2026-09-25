@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion } from "framer-motion";
 import { Sparkles, Heart } from "lucide-react";
 import { loveStory } from "@/data/loveStory";
@@ -24,7 +24,7 @@ export default function BirthdayReveal() {
           transition={{ duration: 3, ease: "easeOut" }}
           className="relative w-full h-full animate-kenburns"
         >
-          <Image
+          <SafeImage
             src={loveStory.reveal.image}
             alt="Birthday Reveal"
             fill

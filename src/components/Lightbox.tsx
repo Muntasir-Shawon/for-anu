@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
+import SafeImage from "@/components/SafeImage";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { GalleryItem } from "@/data/loveStory";
@@ -154,7 +154,7 @@ export default function Lightbox({
             className="relative max-w-4xl max-h-[85vh] w-full flex flex-col items-center"
           >
             <div className="relative w-full h-[55vh] sm:h-[68vh] rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] border border-[#E5C378]/25">
-              <Image
+              <SafeImage
                 src={currentItem.image}
                 alt={currentItem.title}
                 fill
