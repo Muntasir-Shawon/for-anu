@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muntasir-shawon.github.io/for-anu"),
+  metadataBase: new URL("https://muntasir-shawon.github.io"),
   title: loveStory.meta.siteTitle,
   description: loveStory.meta.siteDescription,
   icons: {
